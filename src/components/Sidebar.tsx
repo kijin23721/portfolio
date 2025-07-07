@@ -1,19 +1,34 @@
-// src/components/Sidebar.tsx
+import Link from 'next/link';
+
 const Sidebar = () => {
   return (
-    <aside className="w-64 bg-gray-100 p-4">
-      <h2 className="text-lg font-semibold mb-2">プロフィール</h2>
-      <p className="text-sm mb-4">
-        セキュリティエンジニアやセキュリティコンサルを目指す大学院修士１年です。
-        CISSPアソシエイト、サイバー予備自衛官（一等陸曹）です。
-        産業用制御システムセキュリティを研究中。仙台の制御システムセキュリティセンターとの共同研究。
-      </p>
-      <h3 className="font-semibold mb-1">Links</h3>
-      <ul className="text-sm">
-        <li><a href="https://x.com/no_kijin23721" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">Twitter</a></li>
-        <li><a href="https://qiita.com/no_kijin23721" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">Qiita</a></li>
-        <li><a href="https://note.com/no_kijin23721" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">Note</a></li>
-      </ul>
+    // ===== ここを修正 =====
+    // モバイルでは幅いっぱい、mdサイズ以上で幅を固定(w-64)し、右に余白(mr-8)を追加
+    <aside className="w-full md:w-64 md:mr-8 mb-8 md:mb-0">
+    {/* ===== ここまで ===== */}
+      <div className="p-4 bg-gray-100 rounded-lg">
+        <h2 className="text-lg font-semibold mb-4">プロフィール</h2>
+        <p className="text-sm mb-2">
+          <strong>名前:</strong> no_kijin23721
+        </p>
+        <p className="text-sm mb-4">
+          セキュリティエンジニアを目指して学習中です。
+        </p>
+        <h3 className="font-semibold mb-2">連絡先・リンク</h3>
+        <ul className="text-sm space-y-1">
+          <li>
+            <a href="https://github.com/kijin23721" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">
+              GitHub
+            </a>
+          </li>
+          <li>
+            <a href="https://x.com/your_twitter" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">
+              X (旧Twitter)
+            </a>
+          </li>
+          {/* 他のリンク */}
+        </ul>
+      </div>
     </aside>
   );
 };

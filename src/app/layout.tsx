@@ -1,8 +1,7 @@
-// src/app/layout.tsx
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
-import './globals.css'; // Tailwind CSS用
-import Header from '@/components/Header'; // '@/' は src/ を指すエイリアス
+import './globals.css';
+import Header from '@/components/Header';
 import Sidebar from '@/components/Sidebar';
 
 const inter = Inter({ subsets: ['latin'] });
@@ -22,7 +21,10 @@ export default function RootLayout({
       <body className={inter.className}>
         <div className="flex flex-col min-h-screen">
           <Header />
-          <div className="flex flex-1 container mx-auto mt-4">
+          {/* ===== ここを修正 ===== */}
+          {/* モバイルでは縦積み(flex-col)、mdサイズ以上で横並び(md:flex-row)に変更 */}
+          <div className="flex flex-col md:flex-row flex-1 container mx-auto mt-4">
+          {/* ===== ここまで ===== */}
             <Sidebar />
             <main className="flex-1 p-4">{children}</main>
           </div>
