@@ -1,5 +1,5 @@
 # ステージ1: ビルド環境 (依存関係のインストールとアプリケーションのビルド)
-FROM node:18-alpine AS builder
+FROM node:20-alpine AS builder
 # Alpine Linuxは軽量なベースイメージです
 
 WORKDIR /app
@@ -19,7 +19,7 @@ ENV NEXT_TELEMETRY_DISABLED=1
 RUN npm run build
 
 # ステージ2: 本番環境 (ビルド成果物のみを実行)
-FROM node:18-alpine AS runner
+FROM node:20-alpine AS runner
 
 WORKDIR /app
 
