@@ -1,4 +1,3 @@
-// src/components/Header.tsx
 import Link from 'next/link';
 
 const Header = () => {
@@ -15,6 +14,11 @@ const Header = () => {
           <Link href="/events" className="px-3 hover:text-gray-300">
             参加イベント・インターン
           </Link>
+          {/* ===== ここに「掲示板」へのリンクを追加します ===== */}
+          <Link href="/board" className="px-3 hover:text-gray-300">
+            掲示板
+          </Link>
+          {/* ===== ここまで ===== */}
         </nav>
       </div>
       {/* バナー画像などをここに追加しても良い */}

@@ -29,6 +29,12 @@ COPY --from=builder /app/public ./public
 COPY --from=builder /app/.next ./.next
 COPY --from=builder /app/node_modules ./node_modules
 COPY --from=builder /app/package.json ./package.json
+
+# ===== ここに追加します =====
+# ステージ1の /app/bulletinboard.db を、現在のステージの /app/ にコピーします
+COPY --from=builder /app/bulletinboard.db ./bulletinboard.db
+# ===== ここまで =====
+
 # もしnext.config.jsや他の設定ファイルがあればそれもコピー
 # COPY --from=builder /app/next.config.js ./next.config.js
 
@@ -42,3 +48,4 @@ EXPOSE 3000
 # アプリケーションの起動コマンド
 # package.jsonの "start" スクリプト (`next start`) を実行
 CMD ["npm", "start"]
+
