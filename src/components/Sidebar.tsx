@@ -1,11 +1,9 @@
-import Link from 'next/link';
+// ===== 'Link' を使っていないので、この行を削除しました =====
+// import Link from 'next/link';
 
 const Sidebar = () => {
   return (
-    // ===== ここを修正 =====
-    // モバイルでは幅いっぱい、mdサイズ以上で幅を固定(w-64)し、右に余白(mr-8)を追加
     <aside className="w-full md:w-64 md:mr-8 mb-8 md:mb-0">
-    {/* ===== ここまで ===== */}
       <div className="p-4 bg-gray-100 rounded-lg">
         <h2 className="text-lg font-semibold mb-4">プロフィール</h2>
         <p className="text-sm mb-2">
