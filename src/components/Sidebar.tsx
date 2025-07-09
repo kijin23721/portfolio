@@ -1,6 +1,3 @@
-// ===== 'Link' を使っていないので、この行を削除しました =====
-// import Link from 'next/link';
-
 const Sidebar = () => {
   return (
     <aside className="w-full md:w-64 md:mr-8 mb-8 md:mb-0">
@@ -9,8 +6,9 @@ const Sidebar = () => {
         <p className="text-sm mb-2">
           <strong>名前:</strong> no_kijin23721
         </p>
+        {/* ===== ここを修正 ===== */}
         <p className="text-sm mb-4">
-          セキュリティエンジニアを目指して学習中です。
+          北大文B4→情理新M1 / 学部での研究：満洲国対蒙政策と工作 / 大学院での研究：産業用制御システムセキュリティ×データ駆動型セキュリティ / CISSP(準会員) / サイバー予備自(一曹)
         </p>
         <h3 className="font-semibold mb-2">連絡先・リンク</h3>
         <ul className="text-sm space-y-1">
@@ -20,7 +18,8 @@ const Sidebar = () => {
             </a>
           </li>
           <li>
-            <a href="https://x.com/your_twitter" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">
+            {/* XのURLを修正 */}
+            <a href="https://x.com/no_kijin23721" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">
               X (旧Twitter)
             </a>
           </li>
