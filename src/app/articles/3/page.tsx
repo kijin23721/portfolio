@@ -1,18 +1,30 @@
 import { initialArticles } from '../data';
+import { notFound } from 'next/navigation';
 
-export default function ArticleDetailPage({ params }: { params: { id: string } }) {
+// ===== ここから追加 =====
+// ビルド時に静的生成するページのパスをNext.jsに教えます。
+// これにより、内部記事のページだけがビルド対象になります。
+export async function generateStaticParams() {
+  // 内部記事（urlプロパティがないもの）のIDだけを抽出して返す
+  return initialArticles
+    .filter(article => !article.url)
+    .map((article) => ({
+      id: article.id.toString(),
+    }));
+}
+// ===== ここまで =====
+
+// コンポーネントのPropsの型を明示的に定義します
+type Props = {
+  params: { id: string };
+};
+
+export default function ArticleDetailPage({ params }: Props) {
   const article = initialArticles.find(p => p.id === Number(params.id));
 
-  // ===== ここを修正 =====
-  // 記事が見つからない場合、または見つかった記事が外部リンク（urlを持つ）の場合、
-  // 「見つかりません」ページを表示するようにします。
+  // 記事が見つからない場合、または外部リンクの場合は404ページを表示します
   if (!article || article.url) {
-    return (
-      <div className="text-center">
-        <h1 className="text-2xl font-bold">記事が見つかりません</h1>
-        <p className="mt-4">指定された記事は存在しないか、内部記事ではありません。</p>
-      </div>
-    );
+    notFound();
   }
 
   return (
